@@ -35,10 +35,13 @@ public class ContactsFetchController {
     @ResponseBody
     public List<ContactDto> getAllContacts() {
 
+        log.debug("getAllContacts...");
         List<Contact> contacts = contactService.findAll();
+        if (contacts == null) return null;
         List<ContactDto> contactDtos = contacts.stream()
                 .map(contact -> convertToDto(contact)).collect(Collectors.toList());
 
+        log.info("Fetched contacts: " + contactDtos);
         return contactDtos;
     }
 
@@ -46,7 +49,9 @@ public class ContactsFetchController {
     @ResponseBody
     public ContactDto getContact(@PathVariable String name){
 
+        log.debug("getContact by name: " + name);
         Contact contact = contactService.findByName(name);
+        log.debug("Fetched contact: " + contact);
         return convertToDto(contact);
     }
 }

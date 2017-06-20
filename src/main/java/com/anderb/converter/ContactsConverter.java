@@ -12,6 +12,7 @@ import java.util.stream.Collectors;
 public class ContactsConverter {
 
     public static Contact convertToEntity(ContactDto dto){
+        if (dto == null) return null;
         Contact contact = new Contact();
         contact.setName(dto.getName());
         contact.setPhones(dto.getPhones().stream()
@@ -22,7 +23,7 @@ public class ContactsConverter {
     }
 
     public static ContactDto convertToDto(Contact contact){
-
+        if (contact == null) return null;
         ContactDto dto = new ContactDto();
         dto.setName(contact.getName());
         dto.setPhones(Arrays.asList(contact.getPhones().split("\\s*,\\s*")));

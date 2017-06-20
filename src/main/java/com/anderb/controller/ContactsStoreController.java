@@ -30,7 +30,7 @@ public class ContactsStoreController {
         this.contactService = contactService;
     }
 
-    @PostMapping
+    @PostMapping("/contact")
     @ResponseStatus(HttpStatus.CREATED)
     @ResponseBody
     public void createContact(@RequestBody ContactDto contactDto){
