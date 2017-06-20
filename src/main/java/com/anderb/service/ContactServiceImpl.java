@@ -23,11 +23,6 @@ public class ContactServiceImpl implements ContactService {
     }
 
     @Override
-    public Contact findOne(Contact contact) {
-        return null;
-    }
-
-    @Override
     public Contact findByName(String name) {
         return null;
     }
