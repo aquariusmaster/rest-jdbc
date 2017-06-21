@@ -13,5 +13,5 @@ public interface ContactDao {
     void update(Contact contact);
     Contact findByName(String name);
     List<Contact> findAll();
-    void delete(Contact contact);
+    void delete(String name);
 }

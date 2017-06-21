@@ -33,19 +33,7 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-jdbc</artifactId>
-            <!--<exclusions>-->
-                <!--<exclusion>-->
-                    <!--<groupId>org.apache.tomcat</groupId>-->
-                    <!--<artifactId>tomcat-jdbc</artifactId>-->
-                <!--</exclusion>-->
-            <!--</exclusions>-->
         </dependency>
-        <!--&lt;!&ndash; exclude tomcat-jdbc, Spring Boot will use HikariCP automatically  &ndash;&gt;-->
-        <!--<dependency>-->
-            <!--<groupId>com.zaxxer</groupId>-->
-            <!--<artifactId>HikariCP</artifactId>-->
-            <!--<version>2.6.3</version>-->
-        <!--</dependency>-->
 
         <dependency>
             <groupId>com.h2database</groupId>

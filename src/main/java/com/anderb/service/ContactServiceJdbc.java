@@ -41,7 +41,7 @@ public class ContactServiceJdbc implements ContactService {
     }
 
     @Override
-    public void delete(Contact contact) {
-        contactDao.delete(contact);
+    public void delete(String name) {
+        contactDao.delete(name);
     }
 }

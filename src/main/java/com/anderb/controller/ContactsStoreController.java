@@ -7,6 +7,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -37,7 +39,7 @@ public class ContactsStoreController {
 
         Contact contact = convertToEntity(contactDto);
         contactService.save(contact);
-
+        log.debug("Saved contact: " + contact);
     }
 
     @PutMapping("/contact/{name}")
@@ -46,5 +48,14 @@ public class ContactsStoreController {
 
         Contact contact = convertToEntity(contactDto);
         contactService.update(contact);
+        log.debug("Update contact: " + contact);
+    }
+
+    @DeleteMapping("/contact/{name}")
+    @ResponseStatus(HttpStatus.OK)
+    public void deleteContact(@PathVariable String name){
+
+        contactService.delete(name);
+        log.debug("Delete contact with name: " + name);
     }
 }

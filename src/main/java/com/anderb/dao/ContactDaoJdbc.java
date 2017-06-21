@@ -6,6 +6,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -27,6 +28,7 @@ public class ContactDaoJdbc implements ContactDao {
     }
 
     @Override
+    @Transactional
     public void save(Contact contact) {
 
         String insertionSql = "INSERT INTO contacts (name, phone) VALUES ";
@@ -44,6 +46,7 @@ public class ContactDaoJdbc implements ContactDao {
     }
 
     @Override
+    @Transactional
     public void update(Contact contact) {
 
         String getIdSql = "SELECT id FROM contacts WHERE name=?";
@@ -90,8 +93,9 @@ public class ContactDaoJdbc implements ContactDao {
     }
 
     @Override
-    public void delete(Contact contact) {
+    @Transactional
+    public void delete(String name) {
         jdbcTemplate.update(
-                "DELETE FROM contacts WHERE name=?", new Object[]{contact.getName()});
+                "DELETE FROM contacts WHERE name=?", new Object[]{name});
     }
 }
