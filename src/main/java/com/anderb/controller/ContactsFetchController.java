@@ -37,11 +37,12 @@ public class ContactsFetchController {
 
         log.debug("getAllContacts...");
         List<Contact> contacts = contactService.findAll();
+        log.debug("Contacts: " + contacts);
         if (contacts == null) return null;
         List<ContactDto> contactDtos = contacts.stream()
                 .map(contact -> convertToDto(contact)).collect(Collectors.toList());
 
-        log.info("Fetched contacts: " + contactDtos);
+        log.info("Fetched contactsDto: " + contactDtos);
         return contactDtos;
     }
 
