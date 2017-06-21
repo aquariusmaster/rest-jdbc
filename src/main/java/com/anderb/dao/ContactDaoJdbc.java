@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import javax.sql.DataSource;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -16,14 +15,14 @@ import java.util.List;
  * Created by andreb on 21.06.17.
  */
 @Repository
-public class JdbcContactDao implements ContactDao {
+public class ContactDaoJdbc implements ContactDao {
 
-    private static final Logger log = LoggerFactory.getLogger(JdbcContactDao.class);
+    private static final Logger log = LoggerFactory.getLogger(ContactDaoJdbc.class);
 
     private final JdbcTemplate jdbcTemplate;
 
     @Autowired
-    public JdbcContactDao(JdbcTemplate jdbcTemplate){
+    public ContactDaoJdbc(JdbcTemplate jdbcTemplate){
         this.jdbcTemplate = jdbcTemplate;
     }
 
