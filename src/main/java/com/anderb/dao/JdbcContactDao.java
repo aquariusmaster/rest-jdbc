@@ -65,6 +65,7 @@ public class JdbcContactDao implements ContactDao {
             log.debug("Rows updates: " + Arrays.toString(updateCounts));
         }else {
             log.debug("Update not equal");
+            throw new UnsupportedOperationException("Attempt update uncompatible data");
         }
 
     }
